@@ -1,0 +1,1208 @@
+/*define as cores que vou utilizar no site */
+:root {
+    --azul: #a9d5f2;
+    --azul-claro: #eaf6fc;
+    --rosa: #ffc0cb;
+    --rosa-forte: #e994aa;
+    --lilas: #aaa9df;
+    --lilas-escuro: #7773b7;
+    --branco: #fffdfd;
+    --texto: #514675;
+    --fundo: #fff8fa;
+}
+
+/* -Geral */
+
+/*retira as margens e os espaçamentos padrões dos elementos*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*define a fonte, a cor do fundo e do texto principal do site*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--branco);
+    color: var(--texto);
+    line-height: 1.5;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/*retira a decoração dos links e deixa a cor igual ao texto*/
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/*define que as imagens não ultrapassem o tamanho do espaço disponível*/
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/*define a fonte dos botões e retira a borda padrão*/
+button {
+    font-family: Arial, sans-serif;
+    border: none;
+    cursor: pointer;
+}
+
+/* -Cabeçalho */
+
+/*organiza a parte de cima do site onde fica a logo e o menu*/
+header {
+    position: relative;
+    z-index: 2;
+    min-height: 75px;
+    margin-bottom: 65px;
+    padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+/*cria um degradê suave entre lilás e rosa*/
+background: linear-gradient(
+    to bottom,
+    #aaa9df 0%,
+    #b9a6df 35%,
+    #d5a4d5 70%,
+    #ffc0cb 100%
+
+);
+}
+/*mantém os elementos do cabeçalho na frente da decoração*/
+header > * {
+    position: relative;
+    z-index: 6;
+}
+
+/*adiciona a imagem da cobertura escorrendo na parte de baixo do cabeçalho*/
+header::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background-image: url("glace.png");
+    background-repeat: repeat-x;
+    background-position: left top;
+    background-size: 280px auto;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/*define o tamanho da logo*/
+.logo img {
+    width: 68px;
+    height: auto;
+}
+
+/*personaliza o título do cabeçalho*/
+header h1 {
+    color: white;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+/*organiza os itens do menu um ao lado do outro*/
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    list-style: none;
+}
+
+/*define a aparência dos links do menu*/
+nav a {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+/*muda a cor do link quando passa o mouse por cima*/
+nav a:hover {
+    color: #ffe8c7;
+}
+
+/*personaliza o botão que troca o tema do site*/
+.theme-btn {
+    padding: 9px 13px;
+    border-radius: 18px;
+    background-color: #f8edc9;
+    color: var(--texto);
+    font-size: 13px;
+}
+
+/*muda o fundo do botão quando passa o mouse*/
+.theme-btn:hover {
+    background-color: white;
+}
+
+/*- Inicio */
+
+/*organiza a primeira parte da página inicial com o texto e a imagem*/
+#inicio > section:first-child {
+    min-height: 310px;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+    background-color: #c4e5f5;
+    border-bottom: 8px solid #ffc4d0;
+}
+
+/*faz o conteúdo de dentro ocupar o espaço disponível e centraliza o texto*/
+#inicio > section:first-child div {
+    flex: 1;
+    text-align: center;
+}
+
+/*define a cor e o tamanho do título da apresentação*/
+#inicio > section:first-child h3 {
+    color: #477eae;
+    font-size: 27px;
+    line-height: 1.5;
+}
+
+/*ajusta o tamanho e a aparência da imagem da página inicial*/
+#inicio > section:first-child img {
+    width: 85%;
+    max-width: 370px;
+    height: 200px;
+    object-fit: cover;
+    background-color: white;
+    border: 3px solid white;
+    border-radius: 15px;
+}
+
+/*personaliza os títulos da página inicial*/
+#inicio h2 {
+    margin-bottom: 25px;
+    color: var(--lilas-escuro);
+    font-size: 25px;
+}
+
+/*organiza a segunda seção da página inicial e centraliza o conteúdo*/
+#inicio > section:nth-child(2) {
+    padding: 35px 25px;
+    text-align: center;
+    background-color: var(--fundo);
+}
+
+/*organiza os cartões de produtos em três colunas*/
+#inicio > section:nth-child(2) > div {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+/* -Cartões Produtos*/
+
+/*personaliza os cartões que mostram os cupcakes na página*/
+#inicio article,
+#produtos article {
+    padding: 17px;
+    background-color: white;
+    border: 1px solid #eee2ed;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 3px 9px rgba(80, 60, 100, 0.07);
+}
+
+/*define o tamanho das imagens que ficam dentro dos cartões*/
+#inicio article img,
+#produtos article img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    padding: 8px;
+    background-color: #fffafa;
+    border-radius: 10px;
+}
+
+/*personaliza os nomes dos cupcakes*/
+#inicio article h3,
+#produtos article h3 {
+    margin-top: 12px;
+    color: #62558d;
+    font-size: 17px;
+}
+
+/*define a aparência dos preços dos produtos*/
+#inicio article p,
+#produtos article p {
+    margin-top: 7px;
+    color: #d97895;
+    font-weight: bold;
+}
+
+/* -Produtos */
+
+/*organiza a área onde ficam todos os produtos*/
+#produtos {
+    padding: 30px 20px;
+    text-align: center;
+    background-color: var(--fundo);
+}
+
+/*personaliza o título principal da página de produtos*/
+#produtos > h2 {
+    margin-bottom: 25px;
+    color: #d97895;
+    font-size: 27px;
+}
+
+/*define o espaço e a largura da seção de produtos*/
+#produtos section {
+    display: block;
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+/*personaliza os outros títulos dentro da seção*/
+#produtos section > h2 {
+    margin-bottom: 25px;
+    color: var(--lilas-escuro);
+    font-size: 23px;
+}
+
+/* -Campo de pesquisa */
+
+/*organiza a área onde fica o campo de pesquisa*/
+#produtos .search-container {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+/*personaliza o campo onde a pessoa digita o nome do produto*/
+.search-container input {
+    width: 80%;
+    max-width: 450px;
+    padding: 12px 16px;
+    border: 1px solid #c9bfe0;
+    border-radius: 20px;
+    background-color: white;
+    color: var(--texto);
+    font-size: 14px;
+    outline: none;
+}
+
+/*muda a cor da borda quando o campo de pesquisa está selecionado*/
+.search-container input:focus {
+    border-color: var(--rosa-forte);
+}
+
+/*personaliza a mensagem que aparece quando nenhum produto é encontrado*/
+.no-results-msg {
+    display: none;
+    margin-top: 12px;
+    color: #d97895;
+}
+
+/* -Cupcakes */
+
+/*organiza os produtos em três colunas com espaços entre eles*/
+#produtos .produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 25px auto;
+    align-items: stretch;
+}
+
+/*organiza o conteúdo de cada cartão de produto*/
+#produtos .produtos-grid article {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*define a largura do espaço interno dos cartões*/
+#produtos .produtos-grid article > div {
+    width: 100%;
+}
+
+/*ajusta as imagens dos cupcakes para ficarem proporcionais*/
+#produtos .produtos-grid article img {
+    width: 100%;
+    max-width: 220px;
+    height: 180px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+/*mantém um espaço parecido para os nomes dos produtos*/
+#produtos .produtos-grid article h3 {
+    min-height: 42px;
+}
+
+/* - Botão Produtos */
+
+/*personaliza os botões que adicionam os cupcakes ao carrinho*/
+.itens-carrinho {
+    margin-top: auto;
+    padding: 10px 17px;
+    border-radius: 8px;
+    background-color: var(--lilas-escuro);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/*muda a cor do botão quando passa o mouse*/
+.itens-carrinho:hover {
+    background-color: #625b9c;
+}
+
+/* -Carrinho */
+
+/*organiza a área do carrinho e deixa ela centralizada na página*/
+.carrinho {
+    width: 90%;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #f8edf5;
+    border: 1px solid #ead9e9;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/*personaliza o título do carrinho*/
+.carrinho h2 {
+    margin-bottom: 18px;
+    color: #d97895;
+    font-size: 24px;
+}
+
+/*define a aparência da área onde aparecem os produtos adicionados*/
+#itens-carrinho {
+    padding: 18px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+/*organiza as informações e os botões de cada produto no carrinho*/
+.item-carrinho {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee4ed;
+}
+
+/*personaliza os botões de aumentar, diminuir e remover produtos*/
+.item-carrinho button {
+    padding: 6px 10px;
+    border-radius: 6px;
+    background-color: #eeeafa;
+    color: var(--texto);
+}
+
+/*muda o fundo dos botões quando passa o mouse*/
+.item-carrinho button:hover {
+    background-color: #ded7f0;
+}
+
+/*destaca o valor total da compra*/
+.total {
+    margin: 20px 0;
+    color: var(--lilas-escuro);
+    font-size: 19px;
+    font-weight: bold;
+}
+
+/*personaliza o botão de finalizar a compra*/
+#finalizar-compra {
+    padding: 11px 23px;
+    border-radius: 8px;
+    background-color: var(--rosa-forte);
+    color: white;
+    font-weight: bold;
+}
+
+/*muda a cor do botão quando passa o mouse*/
+#finalizar-compra:hover {
+    background-color: #d77d98;
+}
+
+/* PÁGINA DE CONTATO */
+
+/*define o tamanho, o espaçamento e a cor de fundo da página de contato*/
+#contato {
+    min-height: 390px;
+    padding: 40px 25px;
+    background-color: var(--azul-claro);
+}
+
+/*organiza a caixa com as informações de contato*/
+#contato section {
+    width: 80%;
+    max-width: 650px;
+    margin: auto;
+    padding: 30px;
+    background-color: white;
+    border-left: 6px solid var(--rosa);
+    border-radius: 12px;
+    text-align: center;
+}
+
+/*personaliza o título da página de contato*/
+#contato h2 {
+    margin-bottom: 22px;
+    color: #d97895;
+    font-size: 23px;
+}
+
+/*define o espaçamento e a cor dos textos de contato*/
+#contato p {
+    margin: 16px 0;
+    color: var(--texto);
+}
+
+/*personaliza os links de contato*/
+#contato a {
+    color: var(--lilas-escuro);
+    font-weight: bold;
+}
+
+/*muda a cor dos links quando passa o mouse*/
+#contato a:hover {
+    color: #d97895;
+}
+
+/* -Página do Usuário */
+
+/*organiza a área da página onde fica o formulário de cadastro*/
+#usuario {
+    min-height: 430px;
+    padding: 35px 15px;
+    background-color: #f8f5fc;
+    text-align: center;
+}
+
+/*personaliza o título da página do usuário*/
+#usuario h2 {
+    margin-bottom: 25px;
+    color: #d97895;
+    font-size: 23px;
+}
+
+/*define o tamanho e a aparência da caixa do formulário*/
+#usuario form {
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    padding: 28px;
+    background-color: white;
+    border: 1px solid #eadde9;
+    border-radius: 14px;
+    text-align: left;
+}
+
+/*organiza os campos do formulário e seus textos*/
+#usuario form div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+/*define o tamanho e a aparência dos nomes dos campos*/
+#usuario label {
+    width: 85px;
+    color: #76668f;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/*personaliza os campos onde a pessoa digita suas informações*/
+#usuario input {
+    flex: 1;
+    min-width: 0;
+    padding: 11px 12px;
+    border: 1px solid #ded4e5;
+    border-radius: 7px;
+    background-color: #fffafd;
+    color: var(--texto);
+    outline: none;
+    font-size: 14px;
+}
+
+/*muda a borda e o fundo do campo quando ele está selecionado*/
+#usuario input:focus {
+    border-color: var(--lilas);
+    background-color: white;
+}
+
+/* -Botão de Prosseguir */
+
+/*personaliza o botão que envia o formulário de cadastro*/
+#form-usuario button[type="submit"] {
+    display: block;
+    width: 180px;
+    margin: 22px auto 0;
+    padding: 11px 18px;
+    border-radius: 8px;
+    background-color: var(--lilas);
+    color: white;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+/*muda a cor do botão quando passa o mouse*/
+#form-usuario button[type="submit"]:hover {
+    background-color: var(--lilas-escuro);
+}
+
+/*- Mensagem do Usuário*/
+
+/*define a aparência da mensagem que pode aparecer depois do cadastro*/
+#mensagem-usuario {
+    display: none;
+    margin-top: 20px;
+    padding: 14px;
+    background-color: #e4f5e8;
+    color: #347448;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/*- Modal de Cadastro*/
+
+/*cria a camada escura que fica atrás da janela de confirmação*/
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(35, 30, 50, 0.55);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 1000;
+}
+
+/*quando recebe a classe active, a janela fica visível*/
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/*personaliza a caixa principal que mostra a mensagem de cadastro*/
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 14px;
+    background-color: white;
+    color: var(--texto);
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/*personaliza o título que aparece dentro da janela*/
+.modal-content h2 {
+    margin-bottom: 12px;
+    color: var(--lilas-escuro);
+    font-size: 22px;
+}
+
+/*define a aparência do texto da mensagem*/
+.modal-content p {
+    color: var(--texto);
+    line-height: 1.5;
+}
+
+/*posiciona e personaliza o botão de fechar a janela*/
+.modal-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    padding: 4px 8px;
+    background: none;
+    color: #8b80a5;
+    font-size: 24px;
+}
+
+/*muda a cor do botão de fechar quando passa o mouse*/
+.modal-close:hover {
+    color: #d97895;
+}
+
+/* -Alerta dinâmico  */
+
+/*personaliza a mensagem que aparece automaticamente na página inicial*/
+.dynamic-alert-banner {
+    width: 90%;
+    max-width: 950px;
+    margin: 0 auto 25px;
+    padding: 14px 18px;
+    background-color: white;
+    border: 1px solid #f0d4df;
+    border-left: 5px solid var(--rosa-forte);
+    border-radius: 8px;
+    color: #62558d;
+    text-align: center;
+}
+
+/* -Gerenciador de tarefas */
+
+/*define o espaço e o fundo da área onde fica a lista de tarefas*/
+.task-manager-section {
+    width: 100%;
+    padding: 40px 20px;
+    background-color: #edf5fb;
+    border-top: 1px solid #d7e5f0;
+    border-bottom: 1px solid #d7e5f0;
+}
+
+/*cria e personaliza a caixa principal do gerenciador de tarefas*/
+.task-container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 28px;
+    background-color: white;
+    border: 1px solid #e1d9ee;
+    border-radius: 14px;
+    text-align: center;
+}
+
+/*personaliza o título do gerenciador*/
+.task-container h2 {
+    margin-bottom: 15px;
+    color: var(--lilas-escuro);
+}
+
+/*define o espaçamento dos textos da área de tarefas*/
+.task-container p {
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+/*- Formulário de tarefas */
+
+/*organiza o campo de texto e o botão de adicionar tarefa*/
+.task-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/*personaliza o campo onde a pessoa escreve uma nova tarefa*/
+#task-input {
+    flex: 1;
+    min-width: 0;
+    padding: 11px;
+    border: 1px solid #d5cbe5;
+    border-radius: 7px;
+    outline: none;
+    color: var(--texto);
+}
+
+/*muda a cor da borda quando o campo está selecionado*/
+#task-input:focus {
+    border-color: var(--rosa-forte);
+}
+
+/*personaliza o botão de adicionar tarefas*/
+.task-btn {
+    padding: 11px 18px;
+    border-radius: 7px;
+    background-color: var(--lilas);
+    color: white;
+}
+
+/*muda a cor do botão quando passa o mouse*/
+.task-btn:hover {
+    background-color: var(--lilas-escuro);
+}
+
+/*retira os marcadores padrões da lista de tarefas*/
+.task-list {
+    padding: 0;
+    list-style: none;
+}
+
+/*organiza cada tarefa e seus botões*/
+.task-list li,
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 12px;
+    background-color: #f5f2fa;
+    border-radius: 8px;
+    text-align: left;
+}
+
+/*faz o texto da tarefa ocupar o espaço disponível e quebrar quando necessário*/
+.task-list li span,
+.task-item span {
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+/*personaliza os botões que aparecem ao lado das tarefas*/
+.task-list li button,
+.task-delete-btn {
+    padding: 7px 11px;
+    border-radius: 6px;
+    background-color: #e8e2f3;
+    color: var(--texto);
+}
+
+/*muda a cor dos botões quando passa o mouse*/
+.task-list li button:hover {
+    background-color: #d8cde9;
+}
+
+/*quando uma tarefa é concluída, deixa o texto riscado e mais claro*/
+.task-item.completed span {
+    color: #888;
+    text-decoration: line-through;
+}
+
+/* SIMULADOR DE IA */
+
+/*define o tamanho e o fundo da área onde fica o simulador de sugestões*/
+.ai-simulator-section {
+    width: 100%;
+    padding: 40px 20px;
+    background-color: #fff1f5;
+    border-bottom: 1px solid #f0d8e1;
+}
+
+/*organiza a caixa principal do simulador*/
+.ai-container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 28px;
+    background-color: white;
+    border: 1px solid #f0d8e1;
+    border-radius: 14px;
+    text-align: center;
+}
+
+/*personaliza o título do simulador*/
+.ai-container h2 {
+    margin-bottom: 15px;
+    color: var(--lilas-escuro);
+}
+
+/*define o espaçamento dos textos do simulador*/
+.ai-container p {
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+/*personaliza o botão que gera uma sugestão de cupcake*/
+.ai-btn {
+    padding: 11px 18px;
+    border-radius: 7px;
+    background-color: var(--lilas);
+    color: white;
+}
+
+/*muda a cor do botão quando passa o mouse*/
+.ai-btn:hover {
+    background-color: var(--lilas-escuro);
+}
+
+/*deixa o botão com aparência de desativado enquanto está aguardando*/
+.ai-btn:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+/*personaliza a caixa onde aparece o resultado da sugestão*/
+.ai-result-box {
+    margin-top: 20px;
+    padding: 16px;
+    background-color: #f5f2fa;
+    border: 1px solid #ded5ee;
+    border-radius: 9px;
+}
+
+/*define a aparência do texto com o cupcake sugerido*/
+#ai-output-text {
+    margin: 0;
+    color: #62558d;
+    font-weight: bold;
+}
+
+/* RODAPÉ */
+
+/*organiza a parte final do site onde ficam as informações*/
+footer {
+    min-height: 65px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
+    background-color: #e4e5ec;
+    border-top: 4px solid #f2c5d3;
+    color: #555;
+    font-size: 13px;
+}
+
+/*define o tamanho e o peso do título do rodapé*/
+footer h3 {
+    font-size: 13px;
+    font-weight: normal;
+}
+
+/*muda a cor dos links do rodapé quando passa o mouse*/
+footer a:hover {
+    color: #d97895;
+}
+
+/* MODO ESCURO */
+
+/*define as cores que serão utilizadas quando o modo escuro estiver ligado*/
+body.dark-mode {
+    --branco: #252532;
+    --fundo: #2d2d3b;
+    --texto: #e5e1f2;
+    --lilas: #77749f;
+    --lilas-escuro: #aaa5d8;
+
+    background-color: var(--branco);
+    color: var(--texto);
+}
+
+/*-cria um degradê escuro suave no cabeçalho*/
+.dark-mode header {
+    background: linear-gradient(
+        to bottom,
+        #aaa9df 0%,
+        #8e88b9 40%,
+        #625d85 75%,
+        #39374f 100%
+    );
+}
+
+/*muda somente a cor do texto do botão no modo escuro*/
+.dark-mode .theme-btn {
+    color: #ffffff;
+}
+/*muda o fundo e a borda da primeira seção da página inicial*/
+.dark-mode #inicio > section:first-child {
+    background-color: #303e53;
+    border-bottom-color: #78566c;
+}
+
+/*muda a cor do título da primeira seção*/
+.dark-mode #inicio > section:first-child h3 {
+    color: #d7d8f5;
+}
+
+/*muda o fundo das áreas de início e produtos*/
+.dark-mode #inicio > section:nth-child(2),
+.dark-mode #produtos {
+    background-color: var(--fundo);
+}
+
+/*muda a cor dos títulos dessas áreas*/
+.dark-mode #inicio h2,
+.dark-mode #produtos section > h2 {
+    color: #c8c3f0;
+}
+
+/*ajusta a cor dos títulos principais das páginas*/
+.dark-mode #produtos > h2,
+.dark-mode #usuario h2,
+.dark-mode #contato h2 {
+    color: #f1a9c0;
+}
+
+/*muda o fundo e a borda dos cartões de produtos*/
+.dark-mode #inicio article,
+.dark-mode #produtos article {
+    background-color: #383849;
+    border-color: #514d65;
+}
+
+/*ajusta o fundo das imagens dos produtos para continuarem visíveis*/
+.dark-mode #inicio article img,
+.dark-mode #produtos article img {
+    background-color: #eceaf2;
+}
+
+/*muda a cor dos nomes dos produtos*/
+.dark-mode #inicio article h3,
+.dark-mode #produtos article h3 {
+    color: #e0dafa;
+}
+
+/*muda a cor dos preços dos produtos*/
+.dark-mode #inicio article p,
+.dark-mode #produtos article p {
+    color: #ffb3c9;
+}
+
+/*personaliza o campo de pesquisa no modo escuro*/
+.dark-mode .search-container input {
+    background-color: #363747;
+    border-color: #77749f;
+    color: white;
+}
+
+/*muda a cor do texto de orientação do campo de pesquisa*/
+.dark-mode .search-container input::placeholder {
+    color: #c4bfd7;
+}
+
+/*muda as cores da área do carrinho*/
+.dark-mode .carrinho {
+    background-color: #383344;
+    border-color: #57516e;
+}
+
+/*muda a cor do título do carrinho*/
+.dark-mode .carrinho h2 {
+    color: #f1a9c0;
+}
+
+/*muda o fundo e a cor da área onde aparecem os produtos adicionados*/
+.dark-mode #itens-carrinho {
+    background-color: #343545;
+    color: #e5e1f2;
+}
+
+/*muda a cor das divisões entre os produtos do carrinho*/
+.dark-mode .item-carrinho {
+    border-color: #55516b;
+}
+
+/*personaliza os botões do carrinho no modo escuro*/
+.dark-mode .item-carrinho button {
+    background-color: #4b4864;
+    color: white;
+}
+
+/*muda a cor do valor total da compra*/
+.dark-mode .total {
+    color: #d0c8f0;
+}
+
+/*muda o fundo da página de contato*/
+.dark-mode #contato {
+    background-color: #303e53;
+}
+
+/*muda a aparência da caixa de informações de contato*/
+.dark-mode #contato section {
+    background-color: #38394b;
+    border-left-color: #c17d9a;
+}
+
+/*muda a cor dos textos da página de contato*/
+.dark-mode #contato p {
+    color: #e5e1f2;
+}
+
+/*muda a cor dos links da página de contato*/
+.dark-mode #contato a {
+    color: #c7bdf3;
+}
+
+/*muda o fundo da página do usuário*/
+.dark-mode #usuario {
+    background-color: #292a38;
+}
+
+/*muda o fundo e a borda do formulário*/
+.dark-mode #usuario form {
+    background-color: #38394b;
+    border-color: #514d65;
+}
+
+/*muda a cor dos nomes dos campos do formulário*/
+.dark-mode #usuario label {
+    color: #f1a9c0;
+}
+
+/*muda a aparência dos campos de preenchimento*/
+.dark-mode #usuario input {
+    background-color: #292a38;
+    border-color: #665775;
+    color: white;
+}
+
+/*muda o fundo dos campos quando estão selecionados*/
+.dark-mode #usuario input:focus {
+    background-color: #303142;
+}
+
+/*muda o fundo e as cores da janela de confirmação*/
+.dark-mode .modal-content {
+    background-color: #38394b;
+    color: #e5e1f2;
+}
+
+/*muda a cor do título da janela*/
+.dark-mode .modal-content h2 {
+    color: #c8c3f0;
+}
+
+/*muda a cor da mensagem da janela*/
+.dark-mode .modal-content p {
+    color: #e5e1f2;
+}
+
+/*muda as cores do rodapé no modo escuro*/
+.dark-mode footer {
+    background-color: #30303d;
+    border-top-color: #78566c;
+    color: #dedbe8;
+}
+
+/* Modo Escuro - Alerta */
+
+/*muda as cores do aviso que aparece na página inicial*/
+.dark-mode .dynamic-alert-banner {
+    background-color: #303142;
+    border-color: #514d65;
+    border-left-color: var(--rosa-forte);
+    color: #e5e1f2;
+}
+
+/* Modo Escuro - Tarefas*/
+
+/*muda o fundo da área do gerenciador de tarefas*/
+.dark-mode .task-manager-section {
+    background-color: #292f40;
+    border-color: #514d65;
+}
+
+/*muda o fundo e a borda da caixa de tarefas*/
+.dark-mode .task-container {
+    background-color: #303142;
+    border-color: #514d65;
+}
+
+/*muda a cor dos textos da área de tarefas*/
+.dark-mode .task-container p {
+    color: #e5e1f2;
+}
+
+/*muda a aparência do campo onde são digitadas as tarefas*/
+.dark-mode #task-input {
+    background-color: #252634;
+    color: white;
+    border-color: #77749f;
+}
+
+/*muda o fundo e a cor dos itens da lista de tarefas*/
+.dark-mode .task-list li,
+.dark-mode .task-item {
+    background-color: #3b3b50;
+    color: #e5e1f2;
+}
+
+/*muda as cores dos botões das tarefas*/
+.dark-mode .task-list li button {
+    background-color: #514d6b;
+    color: white;
+}
+
+/* Modo Escuro - Simulador de IA*/
+
+/*muda o fundo da área onde fica o simulador de sugestões*/
+.dark-mode .ai-simulator-section {
+    background-color: #393044;
+    border-color: #514d65;
+}
+
+/*muda o fundo e a borda da caixa do simulador*/
+.dark-mode .ai-container {
+    background-color: #303142;
+    border-color: #514d65;
+}
+
+/*muda a cor dos textos do simulador*/
+.dark-mode .ai-container p {
+    color: #e5e1f2;
+}
+
+/*muda o fundo e a borda da caixa de resultado*/
+.dark-mode .ai-result-box {
+    background-color: #3b3b50;
+    border-color: #77749f;
+}
+
+/*muda a cor do texto com a sugestão de cupcake*/
+.dark-mode #ai-output-text {
+    color: #e5e1f2;
+}
+
+
+/* Logo Imagem */
+
+/*aumenta o tamanho da logo e mantém a imagem proporcional*/
+.logo img {
+    width: 120px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Imagem Home */
+
+/*define um tamanho maior para a imagem principal da página inicial e centraliza ela*/
+/*-ajusta a imagem principal da página inicial*/
+#inicio > section:first-child img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+    object-fit: contain;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+/*-cabeçalho do site*/
+.navbar {
+    padding: 25px 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+/*-espaçamento entre os links do menu*/
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+

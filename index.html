@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<!--
+Projeto: Doce Nuvem
+GitHub: https://github.com/dafinyyo/DoceNuvem
+-->
+<html lang="pt-br">
+
+<head>
+    <!-- configurações iniciais da página -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doce Nuvem</title>
+
+    <!-- conecta o arquivo css com o html -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- cabeçalho do site -->
+    <header>
+
+        <!-- imagem da logo -->
+        <div class="logo">
+            <img src="logo1.png" alt="logodocenuvem">
+        </div>
+
+        <!-- enfeite que fica no cabeçalho -->
+        <div>
+            <h1>︷︷︷︷︷︷︷︷︷︷︷︷︷︷︷︷</h1>
+        </div>
+
+        <!-- menu de navegação do site -->
+        <nav>
+            <ul>
+            <!-- links para acessar as outras páginas -->
+            <li><a href="index.html">Início</a></li>
+            <li><a href="produtos.php">Produtos</a></li>
+            <li><a href="contato.html">Contato</a></li>
+            <li><a href="usuario.php">Usuário</a></li>
+
+            <!-- link que leva até o carrinho -->
+            <li><a href="produtos.html#carrinho"> 🛒Carrinho </a> </li>
+
+            <!-- botão para trocar o tema do site -->
+            <li><button id="theme-toggle" class="theme-btn">🌙Modo escuro</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- parte principal da página inicial -->
+    <main id="inicio">
+
+        <!-- apresentação da loja -->
+        <section>
+
+            <div>
+                <h3>Seu momento merece um cupcake bem docinho!!</h3>
+            </div>
+
+            <!-- imagem principal da página -->
+            <div>
+                <img src="home1.png" alt="home imagem">
+            </div>
+
+        </section>
+
+        <!-- parte dos cupcakes mais pedidos -->
+        <section>
+
+            <h2>
+                - Os cupcakes mais pedidos -
+            </h2>
+
+            <div>
+
+                <!-- primeiro cupcake -->
+                <article>
+                    <div>
+                        <img src="cupcake1.png" alt="cupcake1">
+                    </div>
+                    <h3> Cupcake de Morango</h3>
+                    <p>R$15,20</p>
+                </article>
+
+                <!-- segundo cupcake -->
+                <article>
+                    <div>
+                        <img src="cupcake2.png" alt="cupcake2">
+                    </div>
+                    <h3> Cupcake de Oreo</h3>
+                    <p>R$18,00</p>
+                </article>
+
+                <!-- terceiro cupcake -->
+                <article>
+                    <div>
+                        <img src="cupcake3.png" alt="cupcake3">
+                    </div>
+
+                    <h3> Cupcake de Baunilha</h3>
+                    <p>R$12,10</p>
+                </article>
+            </div>
+
+        </section>
+
+        <!-- parte da lista de tarefas -->
+        <section class="task-manager-section">
+            <div class="task-container">
+
+                <!-- título e apresentação da lista -->
+                <h2>Minha lista de tarefas 📝</h2>
+
+                <p>Organize suas tarefas e acompanhe o que já realizou!</p>
+
+                <!-- formulário para adicionar novas tarefas -->
+                <form id="task-form" class="task-form">
+                    <input
+                        type="text"
+                        id="task-input"
+                        placeholder="Digite uma nova tarefa..."
+                        required
+                        autocomplete="off"
+                    >
+
+                    <!-- botão para adicionar a tarefa na lista -->
+                    <button type="submit" class="task-btn">
+                        Adicionar
+                    </button>
+                </form>
+
+                <!-- espaço onde as tarefas aparecem -->
+                <ul id="task-list" class="task-list"></ul>
+            </div>
+        </section>
+
+        <!-- parte da sugestão surpresa de cupcakes -->
+        <section class="ai-simulator-section">
+            <div class="ai-container">
+
+                <!-- título da sugestão surpresa -->
+                <h2>✨ Sugestão surpresa da Doce Nuvem</h2>
+
+                <p>Não sabe qual cupcake escolher? Deixe nossa assistente sortear uma sugestão!</p>
+
+                <!-- botão para sortear um cupcake -->
+                <button id="ai-generate-btn" class="ai-btn">
+                    Escolher meu cupcake
+                </button>
+
+                <!-- espaço onde aparece o resultado do sorteio -->
+                <div id="ai-result-box" class="ai-result-box" style="display: none;">
+                    <p id="ai-output-text"></p>
+            </div>
+        </section>
+
+    </main>
+
+    </div>
+</div>
+
+    <!-- rodapé do site -->
+    <footer>
+        <h3> Doce Nuvem </h3>
+
+        <!-- link para a página de contato -->
+        <a href="contato.html">Entre em contato</a>
+    </footer>
+
+    <!-- conecta o arquivo javascript com o html -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
